@@ -31,6 +31,8 @@ public class CakeHomePlugin extends JavaPlugin{
 		//Commands
 		cmdExecutor_ = new HomeCommandExecutor(this);
 		getCommand("home").setExecutor(cmdExecutor_);
+		
+		homes_ = HomeUtils.loadHomes();
 	}
 	
 	/**
@@ -39,16 +41,6 @@ public class CakeHomePlugin extends JavaPlugin{
 	@Override
 	public void onDisable(){
 		
-	}
-	
-	public void loadHomes(){
-		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("homes.cak"));
-			homes_ = (HashMap<Player, Location>) ois.readObject();
-			ois.close();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
 	}
 	
 	

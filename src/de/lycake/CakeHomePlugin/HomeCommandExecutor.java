@@ -46,24 +46,12 @@ public class HomeCommandExecutor implements CommandExecutor{
 				loc = player.getLocation();
 				loc.setY(Math.ceil(loc.getY()));
 				homes_.put(player, loc);
-				saveHomes();
+				HomeUtils.saveHomes(homes_);
 			}
 		}
 		return false;
 	}
 	
-	/**
-	 * Saves the homes to file
-	 */
-	public void saveHomes(){
-		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("homes.cak"));
-			oos.writeObject(homes_);
-			oos.flush();
-			oos.close();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-	}
+	
 
 }
