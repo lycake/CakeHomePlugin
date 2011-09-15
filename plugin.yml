@@ -1,0 +1,11 @@
+name: CakeHomePlugin
+main: de.lycake.CakeHomePlugin.CakeHomePlugin
+version: 0.1
+author: Lycake
+
+commands:
+    home:
+        description: Set your home an teleport back there
+        permission: CakeHomePlugin.home
+        usage: |
+            /home [set]
