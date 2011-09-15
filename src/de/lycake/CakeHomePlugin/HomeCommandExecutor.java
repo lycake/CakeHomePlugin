@@ -25,6 +25,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
 		Player player;
+		Location loc;
 		
 		// Home
 		if (cmd.getName().equalsIgnoreCase("home") && sender instanceof Player){	
@@ -35,13 +36,16 @@ public class HomeCommandExecutor implements CommandExecutor{
 					return false;
 				}
 				
-				Location loc = homes_.get(player);
+				loc = homes_.get(player);
+				loc.setY(Math.ceil(loc.getY()));
 				player.teleport(loc);
 				
 				return true;
 			} else if (args.length > 1 && args[0].equalsIgnoreCase("set")){
 				player = (Player) sender;
-				homes_.put(player, player.getLocation());
+				loc = player.getLocation();
+				loc.setY(Math.ceil(loc.getY()));
+				homes_.put(player, loc);
 				saveHomes();
 			}
 		}
