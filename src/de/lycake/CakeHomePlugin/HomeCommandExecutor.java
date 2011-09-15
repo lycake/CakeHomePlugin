@@ -1,7 +1,5 @@
 package de.lycake.CakeHomePlugin;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 import org.bukkit.Location;
