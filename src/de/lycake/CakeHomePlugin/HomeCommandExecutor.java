@@ -34,14 +34,13 @@ public class HomeCommandExecutor implements CommandExecutor{
 				if (!homes_.containsKey(player)){
 					player.sendMessage("You have never set your home");
 					return false;
+				} else {
+					loc = homes_.get(player);
+					loc.setY(Math.ceil(loc.getY()));
+					player.teleport(loc);
+					return true;
 				}
-				
-				loc = homes_.get(player);
-				loc.setY(Math.ceil(loc.getY()));
-				player.teleport(loc);
-				
-				return true;
-			} else if (args.length > 1 && args[0].equalsIgnoreCase("set")){
+			} else if (args.length > 0 && args[0].equalsIgnoreCase("set")){
 				loc = player.getLocation();
 				loc.setY(Math.ceil(loc.getY()));
 				homes_.put(player, loc);
