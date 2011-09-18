@@ -26,9 +26,6 @@ public class HomeUtils {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		if (homes != null){
-			System.out.println("homes is nich null!!!!!!!!!!!!!!!!!!!!!!!!!");
-		}
 		return homes;
 	}
 	

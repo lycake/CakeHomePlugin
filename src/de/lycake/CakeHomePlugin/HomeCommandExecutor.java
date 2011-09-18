@@ -35,8 +35,10 @@ public class HomeCommandExecutor implements CommandExecutor{
 					return false;
 				} else {
 					double[] coords = homes.get(playername);
-					loc = new Location(player.getWorld(), coords[0], coords[1], coords[2]);
-					loc.setY(Math.ceil(loc.getY()));
+					loc = player.getLocation();
+					loc.setX(coords[0]);
+					loc.setY(Math.ceil(coords[1]));
+					loc.setZ(coords[2]);
 					player.teleport(loc);
 					return true;
 				}
@@ -52,6 +54,8 @@ public class HomeCommandExecutor implements CommandExecutor{
 				coords[2] = loc.getZ();
 				homes.put(playername, coords);
 				HomeUtils.saveHomes(homes);
+				
+				player.sendMessage("Home saved");
 				return true;
 			}
 		}
