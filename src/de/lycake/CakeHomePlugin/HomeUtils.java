@@ -1,6 +1,7 @@
 package de.lycake.CakeHomePlugin;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,6 +21,8 @@ public class HomeUtils {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("homes.cak"));
 			homes = (HashMap<Player, Location>) ois.readObject();
 			ois.close();
+		} catch (FileNotFoundException f){
+			homes = new HashMap<Player, Location>();
 		} catch (Exception e){
 			e.printStackTrace();
 		}

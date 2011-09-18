@@ -46,6 +46,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 				loc.setY(Math.ceil(loc.getY()));
 				homes_.put(player, loc);
 				HomeUtils.saveHomes(homes_);
+				return true;
 			}
 		}
 		return false;
