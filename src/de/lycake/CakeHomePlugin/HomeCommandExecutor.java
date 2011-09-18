@@ -29,7 +29,6 @@ public class HomeCommandExecutor implements CommandExecutor{
 		// Home
 		if (cmd.getName().equalsIgnoreCase("home") && sender instanceof Player){	
 			player = (Player) sender;
-			player.sendMessage(""+args.length);
 			if (args.length == 0){
 				if (!homes_.containsKey(player)){
 					player.sendMessage("You have never set your home");
