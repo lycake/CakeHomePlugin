@@ -9,10 +9,14 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CakeHomePlugin extends JavaPlugin{
-	Logger log;
-	HomeCommandExecutor cmdExecutor_;
+	private Logger log;
+	private HomeCommandExecutor cmdExecutor_;
 	
-	public HashMap<Player, Location> homes_;
+	private HashMap<Player, Location> homes_;
+	
+	public CakeHomePlugin(){
+		homes_ = new HashMap<Player, Location>();
+	}
 
 	/**
 	 * Will be executed at plugin start
@@ -43,5 +47,7 @@ public class CakeHomePlugin extends JavaPlugin{
 		
 	}
 	
-	
+	public HashMap<Player, Location> getHomes(){
+		return homes_;
+	}
 }
