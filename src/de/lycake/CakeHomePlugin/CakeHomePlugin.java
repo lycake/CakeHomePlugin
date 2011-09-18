@@ -30,6 +30,7 @@ public class CakeHomePlugin extends JavaPlugin{
 		cmdExecutor_ = new HomeCommandExecutor(this);
 		getCommand("home").setExecutor(cmdExecutor_);
 		
+		//Load homes
 		homes_ = HomeUtils.loadHomes();
 	}
 	
