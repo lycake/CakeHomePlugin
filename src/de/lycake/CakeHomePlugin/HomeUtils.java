@@ -18,15 +18,12 @@ public class HomeUtils {
 	 * Loads the homes from file
 	 */
 	public static HashMap<String,double[]> loadHomes(){
-		File f = new File("Plugins/CakePlugins/homes.cak");
-		try {
-			f.createNewFile();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+		File f = new File("plugins/CakePlugins");
+		f.mkdirs();
+		
 		HashMap<String, double[]> homes = null;
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Plugins/CakePlugins/homes.cak"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("plugins/CakePlugins/homes.cak"));
 			homes = (HashMap<String, double[]>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException fnfe){
@@ -42,7 +39,7 @@ public class HomeUtils {
 	 */
 	public static void saveHomes(HashMap<String, double[]> homes){
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Plugins/CakePlugins/homes.cak"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("plugins/CakePlugins/homes.cak"));
 			oos.writeObject(homes);
 			oos.flush();
 			oos.close();
