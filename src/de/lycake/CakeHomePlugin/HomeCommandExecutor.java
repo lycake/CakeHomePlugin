@@ -32,7 +32,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 			if (args.length == 0){
 				if(homes_ == null)
 					System.out.println("jap hier ist homes null.. fuck!!!!!!!!!!!!");
-				if (!homes_.containsKey(2)){
+				if (/*!homes_.containsKey(player)*/true){
 					player.sendMessage("You have never set your home");
 					return false;
 				} else {
