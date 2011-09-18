@@ -1,6 +1,6 @@
 name: CakeHomePlugin
 main: de.lycake.CakeHomePlugin.CakeHomePlugin
-version: 1.0
+version: 1.1
 author: Lycake
 
 commands:
