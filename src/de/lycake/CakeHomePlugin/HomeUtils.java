@@ -26,6 +26,9 @@ public class HomeUtils {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		if (homes == null){
+			System.out.println("homes null omg wtf!!!!!!!!!!!!!!!!!!!!!!!!!");
+		}
 		return homes;
 	}
 	
