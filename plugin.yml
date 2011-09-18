@@ -9,3 +9,8 @@ commands:
         permission: CakeHomePlugin.home
         usage: |
             /home [set]
+
+permissions:
+    CakeHomePlugin.home:
+        description: Gives access to CakeHome commands
+        default: op
