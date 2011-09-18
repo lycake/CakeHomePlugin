@@ -31,6 +31,7 @@ public class CakeHomePlugin extends JavaPlugin{
 		getCommand("home").setExecutor(cmdExecutor_);
 		
 		//Load homes
+		homes_ = new HashMap<Player, Location>();
 		homes_ = HomeUtils.loadHomes();
 	}
 	
