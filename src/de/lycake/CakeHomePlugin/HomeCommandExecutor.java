@@ -22,7 +22,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
-		Player player;
+		Player player = null;
 		Location loc;
 		
 		
@@ -32,7 +32,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 			if (args.length == 0){
 				if(homes_ == null)
 					System.out.println("jap hier ist homes null.. fuck!!!!!!!!!!!!");
-				if (!homes_.containsKey(player)){
+				if (!homes_.containsKey(2)){
 					player.sendMessage("You have never set your home");
 					return false;
 				} else {
