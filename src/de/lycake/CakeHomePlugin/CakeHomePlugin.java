@@ -12,10 +12,10 @@ public class CakeHomePlugin extends JavaPlugin{
 	private Logger log;
 	private HomeCommandExecutor cmdExecutor_;
 	
-	private HashMap<Player, Location> homes_;
+	private HashMap<String, Location> homes_;
 	
 	public CakeHomePlugin(){
-		homes_ = new HashMap<Player, Location>();
+		homes_ = new HashMap<String, Location>();
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class CakeHomePlugin extends JavaPlugin{
 		getCommand("home").setExecutor(cmdExecutor_);
 		
 		//Load homes
-		homes_ = new HashMap<Player, Location>();
+		homes_ = new HashMap<String, Location>();
 		homes_ = HomeUtils.loadHomes();
 	}
 	
@@ -47,7 +47,7 @@ public class CakeHomePlugin extends JavaPlugin{
 		
 	}
 	
-	public HashMap<Player, Location> getHomes(){
+	public HashMap<String, Location> getHomes(){
 		return homes_;
 	}
 }

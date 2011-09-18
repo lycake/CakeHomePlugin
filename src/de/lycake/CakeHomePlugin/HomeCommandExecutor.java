@@ -22,18 +22,19 @@ public class HomeCommandExecutor implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
 		Player player = null;
 		Location loc;
-		HashMap<Player, Location> homes = plugin_.getHomes();
+		HashMap<String, Location> homes = plugin_.getHomes();
 		
 		
 		// Home
 		if (cmd.getName().equalsIgnoreCase("home") && sender instanceof Player){	
 			player = (Player) sender;
+			String playername = player.getName();
 			if (args.length == 0){
-				if (!homes.containsKey(player)){
+				if (!homes.containsKey(playername)){
 					player.sendMessage("You have never set your home");
 					return false;
 				} else {
-					loc = homes.get(player);
+					loc = homes.get(playername);
 					loc.setY(Math.ceil(loc.getY()));
 					player.teleport(loc);
 					return true;
@@ -42,9 +43,9 @@ public class HomeCommandExecutor implements CommandExecutor{
 				loc = player.getLocation();
 				loc.setY(Math.ceil(loc.getY()));
 				
-				if (homes.containsKey(player))
-					homes.remove(player);
-				homes.put(player, loc);
+				if (homes.containsKey(playername))
+					homes.remove(playername);
+				homes.put(playername, loc);
 				HomeUtils.saveHomes(homes);
 				return true;
 			}
