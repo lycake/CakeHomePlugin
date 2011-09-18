@@ -25,10 +25,12 @@ public class HomeCommandExecutor implements CommandExecutor{
 		Player player;
 		Location loc;
 		
+		
 		// Home
 		if (cmd.getName().equalsIgnoreCase("home") && sender instanceof Player){	
+			player = (Player) sender;
+			player.sendMessage(""+args.length);
 			if (args.length == 0){
-				player = (Player) sender;
 				if (!homes_.containsKey(player)){
 					player.sendMessage("You have never set your home");
 					return false;
@@ -40,7 +42,6 @@ public class HomeCommandExecutor implements CommandExecutor{
 				
 				return true;
 			} else if (args.length > 1 && args[0].equalsIgnoreCase("set")){
-				player = (Player) sender;
 				loc = player.getLocation();
 				loc.setY(Math.ceil(loc.getY()));
 				homes_.put(player, loc);
