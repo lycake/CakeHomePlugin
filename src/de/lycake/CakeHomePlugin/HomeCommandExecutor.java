@@ -30,7 +30,7 @@ public class HomeCommandExecutor implements CommandExecutor{
 		if (cmd.getName().equalsIgnoreCase("home") && sender instanceof Player){	
 			player = (Player) sender;
 			if (args.length == 0){
-				if(!homes_.equals(plugin_.homes_))
+				if(!plugin_.homes_.equals(homes_))
 					System.out.println("equal nicht");
 				if (/*!homes_.containsKey(player)*/true){
 					player.sendMessage("You have never set your home");
