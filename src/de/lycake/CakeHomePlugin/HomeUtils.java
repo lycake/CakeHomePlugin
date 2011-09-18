@@ -15,14 +15,14 @@ public class HomeUtils {
 	/**
 	 * Loads the homes from file
 	 */
-	public static HashMap<String, Location> loadHomes(){
-		HashMap<String, Location> homes = null;
+	public static HashMap<String,double[]> loadHomes(){
+		HashMap<String, double[]> homes = null;
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("homes.cak"));
-			homes = (HashMap<String, Location>) ois.readObject();
+			homes = (HashMap<String, double[]>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException f){
-			homes = new HashMap<String, Location>();
+			homes = new HashMap<String, double[]>();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -35,7 +35,7 @@ public class HomeUtils {
 	/**
 	 * Saves the homes to file
 	 */
-	public static void saveHomes(HashMap<String, Location> homes){
+	public static void saveHomes(HashMap<String, double[]> homes){
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("homes.cak"));
 			oos.writeObject(homes);
