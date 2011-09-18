@@ -18,7 +18,7 @@ public class HomeUtils {
 	public static HashMap<String,double[]> loadHomes(){
 		HashMap<String, double[]> homes = null;
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("homes.cak"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Plugins/CakePlugins/homes.cak"));
 			homes = (HashMap<String, double[]>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException f){

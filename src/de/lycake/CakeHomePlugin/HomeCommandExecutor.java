@@ -40,6 +40,9 @@ public class HomeCommandExecutor implements CommandExecutor{
 					loc.setY(Math.ceil(coords[1]));
 					loc.setZ(coords[2]);
 					player.teleport(loc);
+					
+					player.sendMessage("Teleported home");
+					
 					return true;
 				}
 			} else if (args.length > 0 && args[0].equalsIgnoreCase("set")){
