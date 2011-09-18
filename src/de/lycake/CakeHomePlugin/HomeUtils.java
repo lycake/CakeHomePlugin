@@ -34,7 +34,7 @@ public class HomeUtils {
 	 */
 	public static void saveHomes(HashMap<String, double[]> homes){
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("homes.cak"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Plugins/CakePlugins/homes.cak"));
 			oos.writeObject(homes);
 			oos.flush();
 			oos.close();
