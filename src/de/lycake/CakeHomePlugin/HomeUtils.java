@@ -1,8 +1,10 @@
 package de.lycake.CakeHomePlugin;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
@@ -16,12 +18,18 @@ public class HomeUtils {
 	 * Loads the homes from file
 	 */
 	public static HashMap<String,double[]> loadHomes(){
+		File f = new File("Plugins/CakePlugins/homes.cak");
+		try {
+			f.createNewFile();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		HashMap<String, double[]> homes = null;
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Plugins/CakePlugins/homes.cak"));
 			homes = (HashMap<String, double[]>) ois.readObject();
 			ois.close();
-		} catch (FileNotFoundException f){
+		} catch (FileNotFoundException fnfe){
 			homes = new HashMap<String, double[]>();
 		} catch (Exception e){
 			e.printStackTrace();
